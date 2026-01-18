@@ -1,5 +1,6 @@
 ﻿using Soenneker.Enums.States.US;
-using System.Collections.Generic;
+using System.Diagnostics.Contracts;
+using System.Runtime.CompilerServices;
 
 namespace Soenneker.Extensions.Enums.States.US;
 
@@ -8,59 +9,65 @@ namespace Soenneker.Extensions.Enums.States.US;
 /// </summary>
 public static class USStatesExtension
 {
-    private static readonly Dictionary<USState, string> _fullNames = new()
+    [Pure, MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static string ToFullName(this USState? state)
     {
-        {USState.AL, "Alabama"},
-        {USState.AK, "Alaska"},
-        {USState.AZ, "Arizona"},
-        {USState.AR, "Arkansas"},
-        {USState.CA, "California"},
-        {USState.CO, "Colorado"},
-        {USState.CT, "Connecticut"},
-        {USState.DE, "Delaware"},
-        {USState.FL, "Florida"},
-        {USState.GA, "Georgia"},
-        {USState.HI, "Hawaii"},
-        {USState.ID, "Idaho"},
-        {USState.IL, "Illinois"},
-        {USState.IN, "Indiana"},
-        {USState.IA, "Iowa"},
-        {USState.KS, "Kansas"},
-        {USState.KY, "Kentucky"},
-        {USState.LA, "Louisiana"},
-        {USState.ME, "Maine"},
-        {USState.MD, "Maryland"},
-        {USState.MA, "Massachusetts"},
-        {USState.MI, "Michigan"},
-        {USState.MN, "Minnesota"},
-        {USState.MS, "Mississippi"},
-        {USState.MO, "Missouri"},
-        {USState.MT, "Montana"},
-        {USState.NE, "Nebraska"},
-        {USState.NV, "Nevada"},
-        {USState.NH, "New Hampshire"},
-        {USState.NJ, "New Jersey"},
-        {USState.NM, "New Mexico"},
-        {USState.NY, "New York"},
-        {USState.NC, "North Carolina"},
-        {USState.ND, "North Dakota"},
-        {USState.OH, "Ohio"},
-        {USState.OK, "Oklahoma"},
-        {USState.OR, "Oregon"},
-        {USState.PA, "Pennsylvania"},
-        {USState.RI, "Rhode Island"},
-        {USState.SC, "South Carolina"},
-        {USState.SD, "South Dakota"},
-        {USState.TN, "Tennessee"},
-        {USState.TX, "Texas"},
-        {USState.UT, "Utah"},
-        {USState.VT, "Vermont"},
-        {USState.VA, "Virginia"},
-        {USState.WA, "Washington"},
-        {USState.WV, "West Virginia"},
-        {USState.WI, "Wisconsin"},
-        {USState.WY, "Wyoming"}
-    };
+        if (state is null)
+            return string.Empty;
 
-    public static string ToFullName(this USState state) => _fullNames.TryGetValue(state, out string? name) ? name : state.Value;
+        return state.Value switch
+        {
+            USState.ALValue => "Alabama",
+            USState.AKValue => "Alaska",
+            USState.AZValue => "Arizona",
+            USState.ARValue => "Arkansas",
+            USState.CAValue => "California",
+            USState.COValue => "Colorado",
+            USState.CTValue => "Connecticut",
+            USState.DEValue => "Delaware",
+            USState.FLValue => "Florida",
+            USState.GAValue => "Georgia",
+            USState.HIValue => "Hawaii",
+            USState.IDValue => "Idaho",
+            USState.ILValue => "Illinois",
+            USState.INValue => "Indiana",
+            USState.IAValue => "Iowa",
+            USState.KSValue => "Kansas",
+            USState.KYValue => "Kentucky",
+            USState.LAValue => "Louisiana",
+            USState.MEValue => "Maine",
+            USState.MDValue => "Maryland",
+            USState.MAValue => "Massachusetts",
+            USState.MIValue => "Michigan",
+            USState.MNValue => "Minnesota",
+            USState.MSValue => "Mississippi",
+            USState.MOValue => "Missouri",
+            USState.MTValue => "Montana",
+            USState.NEValue => "Nebraska",
+            USState.NVValue => "Nevada",
+            USState.NHValue => "New Hampshire",
+            USState.NJValue => "New Jersey",
+            USState.NMValue => "New Mexico",
+            USState.NYValue => "New York",
+            USState.NCValue => "North Carolina",
+            USState.NDValue => "North Dakota",
+            USState.OHValue => "Ohio",
+            USState.OKValue => "Oklahoma",
+            USState.ORValue => "Oregon",
+            USState.PAValue => "Pennsylvania",
+            USState.RIValue => "Rhode Island",
+            USState.SCValue => "South Carolina",
+            USState.SDValue => "South Dakota",
+            USState.TNValue => "Tennessee",
+            USState.TXValue => "Texas",
+            USState.UTValue => "Utah",
+            USState.VTValue => "Vermont",
+            USState.VAValue => "Virginia",
+            USState.WAValue => "Washington",
+            USState.WVValue => "West Virginia",
+            USState.WIValue => "Wisconsin",
+            USState.WYValue => "Wyoming",
+            _ => state.Value
+        };
+    }
 }
