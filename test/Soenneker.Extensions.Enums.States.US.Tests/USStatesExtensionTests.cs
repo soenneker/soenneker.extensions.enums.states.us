@@ -1,11 +1,10 @@
-﻿using Soenneker.Tests.Unit;
-using Xunit;
+using Soenneker.Tests.Unit;
 
 namespace Soenneker.Extensions.Enums.States.US.Tests;
 
 public sealed class USStatesExtensionTests : UnitTest
 {
-    [Fact]
+    [Test]
     public void Default()
     {
 
