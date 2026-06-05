@@ -9,6 +9,11 @@ namespace Soenneker.Extensions.Enums.States.US;
 /// </summary>
 public static class USStatesExtension
 {
+    /// <summary>
+    /// Executes the to full name operation.
+    /// </summary>
+    /// <param name="state">The state.</param>
+    /// <returns>The result of the operation.</returns>
     [Pure, MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static string ToFullName(this USState? state)
     {
