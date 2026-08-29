@@ -4,7 +4,7 @@
 [![](https://img.shields.io/github/actions/workflow/status/soenneker/soenneker.extensions.enums.states.us/codeql.yml?label=CodeQL&style=for-the-badge)](https://github.com/soenneker/soenneker.extensions.enums.states.us/actions/workflows/codeql.yml)
 
 # ![](https://user-images.githubusercontent.com/4441470/224455560-91ed3ee7-f510-4041-a8d2-3fc093025112.png) Soenneker.Extensions.Enums.States.US
-A collection of helpful US State enum extension methods.
+Expands `USState` abbreviations into full U.S. state names.
 
 ## Installation
 
@@ -12,15 +12,13 @@ A collection of helpful US State enum extension methods.
 dotnet add package Soenneker.Extensions.Enums.States.US
 ```
 
-## Quick start
+## Usage
 
 ```csharp
 using Soenneker.Extensions.Enums.States.US;
 
-// Given an existing USState? named state:
-var result = state.ToFullName();
+string name = USState.ILValue.ToFullName(); // "Illinois"
+string missing = ((USState?) null).ToFullName(); // ""
 ```
 
-## Common operations
-
-- `ToFullName()` - Converts a nullable `USState` abbreviation to its full state name; `null` becomes an empty string.
+`ToFullName()` covers the 50 state values. Null becomes an empty string. If the enum contains an unrecognized value, the method falls back to that value's `ToString()` representation rather than throwing.
