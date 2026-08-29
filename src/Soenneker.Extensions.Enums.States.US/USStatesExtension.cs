@@ -10,10 +10,10 @@ namespace Soenneker.Extensions.Enums.States.US;
 public static class USStatesExtension
 {
     /// <summary>
-    /// Executes the to full name operation.
+    /// Returns the full display name for a U.S. state value.
     /// </summary>
-    /// <param name="state">The state.</param>
-    /// <returns>The result of the operation.</returns>
+    /// <param name="state">The state value to expand.</param>
+    /// <returns>The state's full display name.</returns>
     [Pure, MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static string ToFullName(this USState? state)
     {
