@@ -45,6 +45,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Soenneker.Enums.States.US" Version="4.0.106" />
+        <PackageReference Include="Soenneker.Enums.States.US" Version="4.0.107" />
     </ItemGroup>
 </Project>
